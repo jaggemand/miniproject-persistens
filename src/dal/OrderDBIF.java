@@ -1,5 +1,7 @@
 package dal;
 
-public class OrderDBIF {
+import model.Order;
 
+public interface OrderDBIF {
+	public boolean addNewOrder(Order o);
 }

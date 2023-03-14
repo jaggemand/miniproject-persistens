@@ -1,5 +1,8 @@
 package dal;
 
-public class ProductDBIF {
+import model.Product;
+
+public interface ProductDBIF {
+	public Product findProductByProductNumber(String productNumber);
 
 }
