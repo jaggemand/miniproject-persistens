@@ -9,7 +9,6 @@ public class Customer {
 	private String phoneNumber;
 	
 	public Customer(String name, String email, String address, String zipcode, String city, String phoneNumber) {
-		super();
 		this.name = name;
 		this.email = email;
 		this.address = address;

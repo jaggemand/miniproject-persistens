@@ -2,106 +2,84 @@ package model;
 
 public class Product {
 	
-	private String countryOfOrigin;
-	private String name;
 	private int productNumber;
-	private int minStock;
-	private double productSalesPrice;
+	private String name;
+	private double PurchasePrice;
+	private double salesPrice;
 	private double rentPrice;
+	private String countryOfOrigin;
+	private int minStock;
 	
-	public Product(String countryOfOrigin, String name, int productNumber, int minStock, double productSalesPrice,
-			double rentPrice) {
-		this.countryOfOrigin = countryOfOrigin;
-		this.name = name;
+	
+
+	public Product(int productNumber, String name, double purchasePrice, double salesPrice, double rentPrice,
+			String countryOfOrigin, int minStock) {
 		this.productNumber = productNumber;
-		this.minStock = minStock;
-		this.productSalesPrice = productSalesPrice;
-		this.rentPrice = rentPrice;
-	}
-
-	/**
-	 * @return the countryOfOrigin
-	 */
-	public String getCountryOfOrigin() {
-		return countryOfOrigin;
-	}
-
-	/**
-	 * @param countryOfOrigin the countryOfOrigin to set
-	 */
-	public void setCountryOfOrigin(String countryOfOrigin) {
-		this.countryOfOrigin = countryOfOrigin;
-	}
-
-	/**
-	 * @return the name
-	 */
-	public String getName() {
-		return name;
-	}
-
-	/**
-	 * @param name the name to set
-	 */
-	public void setName(String name) {
 		this.name = name;
+		PurchasePrice = purchasePrice;
+		this.salesPrice = salesPrice;
+		this.rentPrice = rentPrice;
+		this.countryOfOrigin = countryOfOrigin;
+		this.minStock = minStock;
 	}
 
-	/**
-	 * @return the productNumber
-	 */
 	public int getProductNumber() {
 		return productNumber;
 	}
 
-	/**
-	 * @param productNumber the productNumber to set
-	 */
 	public void setProductNumber(int productNumber) {
 		this.productNumber = productNumber;
 	}
 
-	/**
-	 * @return the minStock
-	 */
-	public int getMinStock() {
-		return minStock;
+	public String getName() {
+		return name;
 	}
 
-	/**
-	 * @param minStock the minStock to set
-	 */
-	public void setMinStock(int minStock) {
-		this.minStock = minStock;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	/**
-	 * @return the productSalesPrice
-	 */
-	public double getProductSalesPrice() {
-		return productSalesPrice;
+	public double getPurchasePrice() {
+		return PurchasePrice;
 	}
 
-	/**
-	 * @param productSalesPrice the productSalesPrice to set
-	 */
-	public void setProductSalesPrice(double productSalesPrice) {
-		this.productSalesPrice = productSalesPrice;
+	public void setPurchasePrice(double purchasePrice) {
+		PurchasePrice = purchasePrice;
 	}
 
-	/**
-	 * @return the rentPrice
-	 */
+	public double getSalesPrice() {
+		return salesPrice;
+	}
+
+	public void setSalesPrice(double salesPrice) {
+		this.salesPrice = salesPrice;
+	}
+
 	public double getRentPrice() {
 		return rentPrice;
 	}
 
-	/**
-	 * @param rentPrice the rentPrice to set
-	 */
 	public void setRentPrice(double rentPrice) {
 		this.rentPrice = rentPrice;
 	}
+
+	public String getCountryOfOrigin() {
+		return countryOfOrigin;
+	}
+
+	public void setCountryOfOrigin(String countryOfOrigin) {
+		this.countryOfOrigin = countryOfOrigin;
+	}
+
+	public int getMinStock() {
+		return minStock;
+	}
+
+	public void setMinStock(int minStock) {
+		this.minStock = minStock;
+	}
+
+	
 	
 	
 
