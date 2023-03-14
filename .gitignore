@@ -10,6 +10,9 @@
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
+# Ignore Database Login Information
+src/dal/Login.java
+
 # Package Files #
 *.jar
 *.war
