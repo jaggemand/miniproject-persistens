@@ -1,5 +1,5 @@
 package dal;
 
-public class ProductDBIF {
+public interface ProductDBIF {
 
 }

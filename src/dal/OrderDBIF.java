@@ -1,5 +1,5 @@
 package dal;
 
-public class OrderDBIF {
+public interface OrderDBIF {
 
 }
