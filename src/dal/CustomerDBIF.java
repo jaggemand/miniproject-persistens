@@ -1,5 +1,7 @@
 package dal;
 
-public interface CustomerDBIF {
+import model.Customer;
 
+public interface CustomerDBIF {
+	public Customer findCustomerByCustomerNumber(String customerNumber);
 }
