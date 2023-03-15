@@ -7,8 +7,6 @@ import java.sql.ResultSet;
 import model.Product;
 
 public interface ProductDBIF {
-	public Product createNewProduct(String name, double purchasePrice, double salesPrice, double rentPrice,
-			String countryOfOrigin, int minStock, int productLocation); // Til Rasmus test
 	
 	public Product createNewProduct(String name, double purchasePrice, double salesPrice, double rentPrice,
 			String countryOfOrigin, int minStock, int productLocation, int stock);

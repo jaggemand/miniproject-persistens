@@ -8,7 +8,7 @@ public class OrderController {
 	private OrderDBIF orderDataBase;
 	
 	public OrderController(OrderDBIF orderDataBase) {
-		
+		this.orderDataBase = orderDataBase;
 	}
 	
 	public Order createNewOrder() {

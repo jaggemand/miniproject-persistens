@@ -24,7 +24,7 @@ class OrderLineTest {
 	@Test
 	void getProduct(){
 		// Arrange
-	    OrderLine orderLine = new OrderLine(testProduct, 5)
+	    OrderLine orderLine = new OrderLine(testProduct, 5);
 	    
 	    // Act
 	    Product product = orderLine.getProduct();
@@ -32,6 +32,55 @@ class OrderLineTest {
 	    // Assert
 	    assertEquals(testProduct, product);
 	}
-
+	
+	@Test
+	void setProduct(){
+		// Arrange
+	    OrderLine orderLine = new OrderLine(testProduct, 5);
+	    
+	    // Act
+	    orderLine.setProduct(testProduct2);
+	    
+	    // Assert
+	    assertNotEquals(testProduct, orderLine.getProduct());
+	    assertEquals(testProduct2, orderLine.getProduct());
+	}
+	
+	@Test
+	void getQuantity(){
+		// Arrange
+	    OrderLine orderLine = new OrderLine(testProduct, 5);
+	    
+	    // Act
+	    int quantity = orderLine.getQuantity();
+	    
+	    // Assert
+	    assertEquals(5, quantity);
+	}
+	
+	@Test
+	void setQuantity(){
+		// Arrange
+	    OrderLine orderLine = new OrderLine(testProduct, 5);
+	    
+	    // Act
+	    orderLine.setQuantity(8);
+	    
+	    // Assert
+	    assertNotEquals(5, orderLine.getQuantity());
+	    assertEquals(8, orderLine.getQuantity());
+	}
+	
+	@Test
+	void getTotalPriceTest(){
+		// Arrange
+	    OrderLine orderLine = new OrderLine(testProduct, 5);
+	    
+	    // Act
+	    double total = orderLine.getTotalPrice();
+	    
+	    // Assert
+	    assertEquals(495, total);
+	}
 
 }
