@@ -10,11 +10,12 @@ public class Product {
 	private String countryOfOrigin;
 	private int minStock;
 	private int productLocation;
+	private int stock;
 	
 	
 
 	public Product(int productNumber, String name, double purchasePrice, double salesPrice, double rentPrice,
-			String countryOfOrigin, int minStock, int productLocation) {
+			String countryOfOrigin, int minStock, int productLocation, int stock) {
 		this.productNumber = productNumber;
 		this.name = name;
 		PurchasePrice = purchasePrice;
@@ -23,6 +24,7 @@ public class Product {
 		this.countryOfOrigin = countryOfOrigin;
 		this.minStock = minStock;
 		this.productLocation = productLocation;
+		this.stock = stock;
 	}
 
 	public int getProductNumber() {
@@ -79,6 +81,10 @@ public class Product {
 
 	public void setMinStock(int minStock) {
 		this.minStock = minStock;
+	}
+	
+	public int getStockAmount() {
+		return stock;
 	}
 
 	

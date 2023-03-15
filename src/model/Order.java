@@ -23,6 +23,7 @@ public class Order {
 	
 	public Order() {
 		//constructer is purposly empty
+		this.orderLineList = new ArrayList<>();
 	}
 	
 	public Order(ArrayList<OrderLine> orderLineList, Customer customer, int orderNumber, Calendar deliveryDate,
@@ -45,20 +46,20 @@ public class Order {
 	*/
 	public boolean addProduct(Product product, int quantity) {
 		// Create a new order line for the product and quantity
-		OrderLine orderLine = new OrderLine(product, quantity);
+		OrderLine newOrderLine = new OrderLine(product, quantity);
 		// Search for an existing order line for the product
 		boolean found = false;
 		
 		for(int i = 0;!found && i<orderLineList.size(); i++){
-			if(orderLineList.get(i).getProduct().equals(orderLine.getProduct())){
+			if(orderLineList.get(i).getProduct().equals(newOrderLine.getProduct())){
 				// An existing order line for the product is found
 				found = true;
-				orderLine.setQuantity(orderLine.getQuantity() + quantity);// Update the quantity of the order line
+				newOrderLine.setQuantity(orderLineList.get(i).getQuantity() + quantity);// Update the quantity of the order line
 				orderLineList.remove(i); // Remove the existing order line
 			}
 		}
 		// Add the new or updated order line to the order
-		return orderLineList.add(orderLine);
+		return orderLineList.add(newOrderLine);
 	}
 	
 	/**
