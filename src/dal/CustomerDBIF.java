@@ -3,5 +3,5 @@ package dal;
 import model.Customer;
 
 public interface CustomerDBIF {
-	public Customer findCustomerByCustomerNumber(String customerNumber);
+	public Customer findCustomerByCustomerNumber(int customerNumber);
 }

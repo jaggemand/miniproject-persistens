@@ -1,35 +1,48 @@
 package model;
 
 public class Customer {
-	private String name;
+	private String firstName;
+	private String lastName;
 	private String email;
 	private String address;
 	private String zipcode;
 	private String city;
 	private String phoneNumber;
 	
-	public Customer(String name, String email, String address, String zipcode, String city, String phoneNumber) {
-		super();
-		this.name = name;
+	public Customer(String firstName, String lastName, String email, String address, String zipcode, String city, String phoneNumber) {
+		this.firstName = firstName;
+		this.lastName = lastName;
 		this.email = email;
 		this.address = address;
 		this.zipcode = zipcode;
 		this.city = city;
 		this.phoneNumber = phoneNumber;
 	}
+	
+	public Customer() {
+		//supposed to be empty for object creation
+	}
 
 	/**
 	 * @return the name
 	 */
-	public String getName() {
-		return name;
+	public String getFirstName() {
+		return firstName;
 	}
 
 	/**
 	 * @param name the name to set
 	 */
-	public void setName(String name) {
-		this.name = name;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+	
+	public String getLastName() {
+		return this.lastName;
+	}
+	
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 
 	/**
