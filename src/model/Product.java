@@ -9,11 +9,12 @@ public class Product {
 	private double rentPrice;
 	private String countryOfOrigin;
 	private int minStock;
+	private int productLocation;
 	
 	
 
 	public Product(int productNumber, String name, double purchasePrice, double salesPrice, double rentPrice,
-			String countryOfOrigin, int minStock) {
+			String countryOfOrigin, int minStock, int productLocation) {
 		this.productNumber = productNumber;
 		this.name = name;
 		PurchasePrice = purchasePrice;
@@ -21,6 +22,7 @@ public class Product {
 		this.rentPrice = rentPrice;
 		this.countryOfOrigin = countryOfOrigin;
 		this.minStock = minStock;
+		this.productLocation = productLocation;
 	}
 
 	public int getProductNumber() {
