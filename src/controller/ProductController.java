@@ -19,7 +19,7 @@ public class ProductController {
 	public Product findProductByProductNumber(int productNumber) {
 		Product outputProduct = null;
 
-		productDataBase.findProductByProductNumber(productNumber);
+		outputProduct = productDataBase.findProductByProductNumber(productNumber);
 
 		return outputProduct;
 	}

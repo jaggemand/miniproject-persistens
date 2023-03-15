@@ -5,6 +5,8 @@ import controller.*;
 import dal.*;
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.ArrayList;
+
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
@@ -44,7 +46,7 @@ class ProductTest {
 		
 		//Act
 		ProductController productController = new ProductController(productDataBase);
-		success = productController.updateProductStock(1, 5);
+		success = productController.updateProductStock(1, -5);
 		if (!success) {
 			fail("Could not update product stock");
 		} else {
@@ -53,6 +55,21 @@ class ProductTest {
 		
 		//Assert
 		assertEquals(30, hello.getStockAmount());
+	}
+	
+	@Test
+	void shouldReturn2Products() {
+		productDataBase = new ProductDB();
+		//Arrange
+		Product hello = null;
+		ArrayList<Product> list = new ArrayList<>();
+		
+		//Act
+		ProductController productController = new ProductController(productDataBase);
+		list = productController.selectStockLocation(2);
+		
+		//Assert
+		assertEquals(39, list.size());
 	}
 
 }

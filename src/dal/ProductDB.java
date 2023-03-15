@@ -120,7 +120,7 @@ public class ProductDB implements ProductDBIF {
 	        // Set the location ID parameter for the prepared statement
 	        prepS.setInt(1, locationId);
 	        // Execute the prepared statement
-	        prepS.executeUpdate();
+	        //prepS.executeUpdate();
 	        // Get the result set from the executed query
 	        ResultSet rs = prepS.executeQuery();
 	        if (rs != null && rs.next()) {
@@ -131,7 +131,7 @@ public class ProductDB implements ProductDBIF {
 	        prepS.close();
 	    } catch (SQLException e) {
 	        // If an SQLException is thrown, print an error message
-	        System.out.println("Some kind of error" + e.getMessage());
+	        System.out.println("Some kind of error " + e.getMessage());
 	    }
 	    // Return the productList variable (which will be null if no products were found at the specified location)
 	    return productList;
@@ -195,7 +195,6 @@ public class ProductDB implements ProductDBIF {
 					rs.getInt("min_stock"), rs.getInt("product_location"), rs.getInt("stock_amount"));
 		} catch (SQLException e) {
 			System.out.println("Cannot convert from ResultSet" + e.getMessage());
-			;
 		}
 		return product;
 	}
