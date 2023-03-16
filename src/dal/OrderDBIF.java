@@ -3,5 +3,5 @@ package dal;
 import model.Order;
 
 public interface OrderDBIF {
-	public boolean addNewOrder(Order o);
+	public Order addNewOrder(Order o);
 }

@@ -17,17 +17,24 @@ public class Order {
 	private ArrayList<OrderLine> orderLineList;
 	private Customer customer;
 	private int orderNumber;
+	private Calendar creationDate;
 	private Calendar deliveryDate;
 	private Calendar paymentDate;
+	private int orderStatus;
 	private double totalCost;
 	
 	public Order() {
 		//constructer is purposly empty
 		this.orderLineList = new ArrayList<>();
+		creationDate = Calendar.getInstance();
+		deliveryDate = Calendar.getInstance();
+		paymentDate = Calendar.getInstance();
 	}
 	
-	public Order(ArrayList<OrderLine> orderLineList, Customer customer, int orderNumber, Calendar deliveryDate,
-			Calendar paymentDate, double totalCost) {
+	public Order(ArrayList<OrderLine> orderLineList, Customer customer, int orderNumber,Calendar creationDate, Calendar deliveryDate,
+			Calendar paymentDate, double totalCost, int orderStatus) {
+		this.orderStatus = orderStatus;
+		this.creationDate = creationDate;
 		this.orderLineList = orderLineList;
 		this.customer = customer;
 		this.orderNumber = orderNumber;
@@ -145,6 +152,14 @@ public class Order {
 	public void setOrderNumber(int orderNumber) {
 		this.orderNumber = orderNumber;
 	}
+	
+	public int getOrderStatus() {
+		return orderStatus;
+	}
+
+	public void setOrderStatus(int orderStatus) {
+		this.orderStatus = orderStatus;
+	}
 
 	public Calendar getDeliveryDate() {
 		return deliveryDate;
@@ -160,6 +175,14 @@ public class Order {
 
 	public void setPaymentDate(Calendar paymentDate) {
 		this.paymentDate = paymentDate;
+	}
+	
+	public Calendar getCreationDate() {
+		return creationDate;
+	}
+
+	public void setCreationDate(Calendar creationDate) {
+		this.creationDate = creationDate;
 	}
 
 	public double getTotalCost() {
