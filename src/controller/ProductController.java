@@ -45,6 +45,14 @@ public class ProductController {
 
 		return success;
 	}
+	
+	public boolean updateProductLocation(int productNumber, int location) {
+		boolean success = false;
+		
+		success = productDataBase.updateProductLocation(productNumber, location);
+		
+		return success;
+	}
 
 	public ArrayList<Product> selectStockLocation(int locationNumber) {
 		List<Product> tempList = new ArrayList<>();
@@ -59,17 +67,18 @@ public class ProductController {
 			String countryOfOrigin, int minStock, int stock, int contactSupplier, int productType,
 			int productLocation) {
 		Product product = null;
-		
-		product = productDataBase.createNewProduct(name, purchasePrice, salesPrice, rentPrice, countryOfOrigin, minStock, stock, contactSupplier, productType, productLocation);
-		
+
+		product = productDataBase.createNewProduct(name, purchasePrice, salesPrice, rentPrice, countryOfOrigin,
+				minStock, stock, contactSupplier, productType, productLocation);
+
 		return product;
 	}
-	
+
 	public boolean removeProduct(int productNumber) {
 		boolean success = false;
-		
+
 		success = productDataBase.removeProduct(productNumber);
-		
+
 		return success;
 	}
 
