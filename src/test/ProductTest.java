@@ -16,11 +16,12 @@ import org.junit.jupiter.api.Test;
 class ProductTest {
 	
 	private ProductDB productDataBase;
-	private Product testProduct1;
-	private Product testProduct2;
+	Product product;
+	int identity;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
+	createTestProduct();
 	}
 
 	@AfterAll
@@ -29,8 +30,7 @@ class ProductTest {
 
 	@BeforeEach
 	void setUp() throws Exception {
-		//testProduct1 = new Product(3, "Cowboy Hat", 100.0, 200.0, 50.0, "USA", 5, 1, 25);
-		//testProduct2 = new Product(4, "Cowboy Vest", 150.0, 250.0, 100.0, "Hungary", 5, 2, 30);
+
 	}
 
 	@AfterEach
@@ -41,35 +41,50 @@ class ProductTest {
 	void shouldUpdateProductStockTo30() {
 		productDataBase = new ProductDB();
 		//Arrange
-		Product hello = null;
+		Product checkProduct = null;
 		boolean success = false;
 		
 		//Act
 		ProductController productController = new ProductController(productDataBase);
-		success = productController.updateProductStock(1, -5);
+		success = productController.updateProductStock(identity, 5);
 		if (!success) {
 			fail("Could not update product stock");
 		} else {
-			hello = productController.findProductByProductNumber(1);	
+			product = productController.findProductByProductNumber(1);	
 		}
 		
 		//Assert
-		assertEquals(30, hello.getStockAmount());
+		assertEquals(30, checkProduct);
 	}
 	
 	@Test
 	void shouldReturn2Products() {
-		productDataBase = new ProductDB();
 		//Arrange
-		Product hello = null;
+		productDataBase = new ProductDB();
 		ArrayList<Product> list = new ArrayList<>();
+		ProductController productController = new ProductController(productDataBase);
 		
 		//Act
-		ProductController productController = new ProductController(productDataBase);
 		list = productController.selectStockLocation(2);
 		
 		//Assert
 		assertEquals(39, list.size());
+	}
+	
+	
+	static void createTestProduct() {
+		//Arrange
+		productDataBase = new ProductDB();
+		ProductController productController = new ProductController(productDataBase);
+		product = null;
+		identity = -1;
+		
+		//Act
+		product = productController.createNewProduct("Cowboy Hat", 100.0, 200.0, 50.0, "USA", 5, 25, 3, 1, 2);
+		identity = product.getProductNumber();
+		
+		//Assert
+		//?
 	}
 
 }

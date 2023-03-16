@@ -1,6 +1,7 @@
 package model;
 
 public class Customer {
+	private int customerNumber;
 	private String firstName;
 	private String lastName;
 	private String email;
@@ -9,7 +10,8 @@ public class Customer {
 	private String city;
 	private String phoneNumber;
 	
-	public Customer(String firstName, String lastName, String email, String address, String zipcode, String city, String phoneNumber) {
+	public Customer(int customerNumber, String firstName, String lastName, String email, String address, String zipcode, String city, String phoneNumber) {
+		this.customerNumber = customerNumber;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
@@ -21,6 +23,14 @@ public class Customer {
 	
 	public Customer() {
 		//supposed to be empty for object creation
+	}
+	
+	public int getCustomerNumber(){
+		return customerNumber;
+	}
+	
+	public void setCustomerNumber(int customerNumber){
+		this.customerNumber = customerNumber;
 	}
 
 	/**

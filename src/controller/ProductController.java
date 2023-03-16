@@ -55,6 +55,16 @@ public class ProductController {
 		return outputList;
 	}
 
+	public Product createNewProduct(String name, double purchasePrice, double salesPrice, double rentPrice,
+			String countryOfOrigin, int minStock, int stock, int contactSupplier, int productType,
+			int productLocation) {
+		Product product = null;
+		
+		product = productDataBase.createNewProduct(name, purchasePrice, salesPrice, rentPrice, countryOfOrigin, minStock, stock, contactSupplier, productType, productLocation);
+		
+		return product;
+	}
+
 	public void selectProductToUpdate(int productNumber) {
 
 	}

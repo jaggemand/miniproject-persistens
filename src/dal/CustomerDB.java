@@ -48,6 +48,7 @@ public class CustomerDB implements CustomerDBIF {
 	
 	private Customer buildObject(ResultSet rs) throws SQLException {
 		Customer result = new Customer();
+		result.setCustomerNumber(rs.getInt("contact_number"));
 		result.setFirstName(rs.getString("first_name"));
 		result.setLastName(rs.getString("last_name"));
 		result.setEmail(rs.getString("email"));
