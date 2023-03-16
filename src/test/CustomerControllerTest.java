@@ -37,7 +37,7 @@ class CustomerControllerTest {
 		Customer customer = null;
 		
 		//act
-		customer = cc.findCustomerByCustomerNumber(1);
+		customer = cc.findCustomerByCustomerNumber(0);
 		
 		//assert
 		assertNotEquals(customer, null);

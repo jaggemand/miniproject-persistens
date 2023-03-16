@@ -17,7 +17,8 @@ public class ProductDB implements ProductDBIF {
 	private static final String UPDATE_PRODUCT_STOCK = "UPDATE product SET stock_amount = ? WHERE product_number = ?";
 	private static final String SELECT_PRODUCT_PRODUCTNUMBER = "SELECT * FROM product WHERE product_number = ?";
 	private static final String INSERT_PRODUCT = "INSERT INTO product(product_name, purchase_price, sales_price, rent_price, country_of_origin, min_stock, stock_amount, contact_supplier_number_fk, product_type_id_fk, product_location) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-
+	private static final String DELETE_PRODUCT = "DELETE FROM product WHERE product_number = ?";
+	
 	/**
 	 * Creates a new Product object in the database and returns it.
 	 * 
@@ -59,13 +60,13 @@ public class ProductDB implements ProductDBIF {
 			ResultSet rs = prepS.getGeneratedKeys();
 			if (rs.next()) {
 				// Set the identity to the generated ID
-				identity = rs.getInt("id");
+				identity = rs.getInt(1);
 			}
 			rs.close();
 			prepS.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
-			System.out.println("Cannot insert record" + e.getMessage());
+			System.out.println("Cannot insert record " + e.getMessage());
 		}
 
 		// Return a new Product object with the generated ID
@@ -172,6 +173,31 @@ public class ProductDB implements ProductDBIF {
 		}
 		// Return the success variable (which will be true if the update was successful,
 		// false otherwise)
+		return success;
+	}
+	
+	@Override
+	public boolean removeProduct(int productNumber) {
+		// Get a database connection
+		Connection con = DBConnection.getInstance().getDBcon();
+		int rowAffected = -1;
+		boolean success = false;
+		try (PreparedStatement prepS = con.prepareStatement(DELETE_PRODUCT)) {
+			// Set the product number parameter for the prepared statement
+			prepS.setInt(1, productNumber);
+
+			// Execute the prepared statement
+			rowAffected = prepS.executeUpdate();
+			prepS.close();
+			if (rowAffected == 1) {
+				success = true;
+			}
+		} catch (SQLException e) {
+			// If an SQLException is thrown, print an error message
+			System.out.println("Cannot insert record " + e.getMessage());
+		}
+		// Return the outputProduct variable (which will be null if no matching product
+		// was found)
 		return success;
 	}
 

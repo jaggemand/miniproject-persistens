@@ -17,4 +17,6 @@ public interface ProductDBIF {
 	public List<Product> getProductsAtLocation(int locationId);
 	
 	public boolean updateProductStock(int productNumber, int stock);
+	
+	public boolean removeProduct(int productNumber);
 }

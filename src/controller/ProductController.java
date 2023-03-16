@@ -64,6 +64,14 @@ public class ProductController {
 		
 		return product;
 	}
+	
+	public boolean removeProduct(int productNumber) {
+		boolean success = false;
+		
+		success = productDataBase.removeProduct(productNumber);
+		
+		return success;
+	}
 
 	public void selectProductToUpdate(int productNumber) {
 
