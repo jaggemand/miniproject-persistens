@@ -10,7 +10,8 @@ public class ProductDBStub implements ProductDBIF{
 
 	@Override
 	public Product createNewProduct(String name, double purchasePrice, double salesPrice, double rentPrice,
-			String countryOfOrigin, int minStock, int productLocation, int stock) {
+			String countryOfOrigin, int minStock, int stock, int contactSupplier, int productType,
+			int productLocation) {
 		return new Product(stock, name, purchasePrice, salesPrice, rentPrice, countryOfOrigin, minStock, productLocation, stock);
 	}
 
@@ -34,6 +35,12 @@ public class ProductDBStub implements ProductDBIF{
 	@Override
 	public boolean updateProductStock(int productNumber, int stock) {
 		return true;
+	}
+
+	@Override
+	public boolean removeProduct(int productNumber) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 	
 	
