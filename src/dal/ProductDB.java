@@ -13,8 +13,8 @@ import java.sql.Statement;
 public class ProductDB implements ProductDBIF {
 
 	private static final String SELECT_PRODUCT_LOCATION = "SELECT * FROM product WHERE product_location = ?";
-	private static final String SELECT_PRODUCT_ALL = "SELECT * FROM product";
 	private static final String UPDATE_PRODUCT_STOCK = "UPDATE product SET stock_amount = ? WHERE product_number = ?";
+	private static final String UPDATE_PRODUCT_LOCATION = "UPDATE product SET product_location = ? WHERE product_number = ?";
 	private static final String SELECT_PRODUCT_PRODUCTNUMBER = "SELECT * FROM product WHERE product_number = ?";
 	private static final String INSERT_PRODUCT = "INSERT INTO product(product_name, purchase_price, sales_price, rent_price, country_of_origin, min_stock, stock_amount, contact_supplier_number_fk, product_type_id_fk, product_location) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 	private static final String DELETE_PRODUCT = "DELETE FROM product WHERE product_number = ?";
@@ -28,7 +28,7 @@ public class ProductDB implements ProductDBIF {
 	 * @param rentPrice       the rent price of the new product
 	 * @param countryOfOrigin the country of origin of the new product
 	 * @param minStock        the minimum stock of the new product
-	 * @param productLocation the location of the new product
+	 * @param productLocation the location of the new product (1 = main warehouse, 2 = mobile warehouse)
 	 * @param stock           the stock amount of the new product
 	 * @return a new Product object
 	 */
@@ -163,6 +163,28 @@ public class ProductDB implements ProductDBIF {
 		try (PreparedStatement prepS = con.prepareStatement(UPDATE_PRODUCT_STOCK)) {
 			// Set the stock and product number parameters for the prepared statement
 			prepS.setInt(1, stock);
+			prepS.setInt(2, productNumber);
+			// Execute the prepared statement and check if it was successful
+			success = (prepS.executeUpdate() == 1) ? true : false;
+			prepS.close();
+		} catch (SQLException e) {
+			// If an SQLException is thrown, print an error message
+			System.out.println("Some kind of error" + e.getMessage());
+		}
+		// Return the success variable (which will be true if the update was successful,
+		// false otherwise)
+		return success;
+	}
+	
+	@Override
+	public boolean updateProductLocation(int productNumber, int location) {
+		// Initialize the success variable to false
+		boolean success = false;
+		// Get a database connection
+		Connection con = DBConnection.getInstance().getDBcon();
+		try (PreparedStatement prepS = con.prepareStatement(UPDATE_PRODUCT_LOCATION)) {
+			// Set the location and product number parameters for the prepared statement
+			prepS.setInt(1, location);
 			prepS.setInt(2, productNumber);
 			// Execute the prepared statement and check if it was successful
 			success = (prepS.executeUpdate() == 1) ? true : false;

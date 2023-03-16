@@ -18,5 +18,7 @@ public interface ProductDBIF {
 	
 	public boolean updateProductStock(int productNumber, int stock);
 	
+	public boolean updateProductLocation(int productNumber, int location);
+	
 	public boolean removeProduct(int productNumber);
 }

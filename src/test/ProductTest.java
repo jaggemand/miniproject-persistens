@@ -19,8 +19,10 @@ class ProductTest {
 	private static ProductDB productDataBase1;
 	private static Product product1;
 	private static Product product2;
+	private static Product product3;
 	private static int identity1;
 	private static int identity2;
+	private static int identity3;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -74,20 +76,39 @@ class ProductTest {
 		assertEquals(2, list.size());
 	}
 
+	@Test
+	void shouldSetProductLocationTo2() {
+		// Arrange
+		boolean success = false;
+		productDataBase = new ProductDB();
+		ProductController productController = new ProductController(productDataBase);
+
+		// Act
+		// Location 1 = main warehouse, location 2 = mobile warehouse, location3 = test location
+		success = productController.updateProductLocation(identity3, 3);
+		
+		// Assert
+		assertTrue(success);
+	}
+
 	static void createTestProducts() {
 		// Arrange
 		productDataBase1 = new ProductDB();
 		ProductController productController = new ProductController(productDataBase1);
 		product1 = null;
 		product2 = null;
+		product3 = null;
 		identity1 = -1;
 		identity2 = -1;
+		identity3 = -1;
 
 		// Act
 		product1 = productController.createNewProduct("Cowboy Hat", 100.0, 200.0, 50.0, "USA", 5, 25, 3, 1, 1);
 		product2 = productController.createNewProduct("Cowboy Hat", 100.0, 200.0, 50.0, "USA", 5, 25, 3, 1, 1);
+		product3 = productController.createNewProduct("Cowboy Hat", 100.0, 200.0, 50.0, "USA", 5, 25, 3, 1, 2);
 		identity1 = product1.getProductNumber();
 		identity2 = product2.getProductNumber();
+		identity3 = product3.getProductNumber();
 	}
 
 	static void removeTestProducts() {
@@ -98,6 +119,7 @@ class ProductTest {
 		// Act
 		productController.removeProduct(identity1);
 		productController.removeProduct(identity2);
+		productController.removeProduct(identity3);
 	}
 
 }
