@@ -10,6 +10,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+/**
+Last updated: 17-03-2023
+
+- Documentation and comments added
+*/
+
 public class ProductDB implements ProductDBIF {
 
 	private static final String SELECT_PRODUCT_LOCATION = "SELECT * FROM product WHERE product_location = ?";
@@ -176,6 +182,12 @@ public class ProductDB implements ProductDBIF {
 		return success;
 	}
 	
+	/**
+	Updates the location of a product in the database
+	@param productNumber The number of the product to update
+	@param location The new location of the product
+	@return True if the update was successful, false otherwise
+	*/
 	@Override
 	public boolean updateProductLocation(int productNumber, int location) {
 		// Initialize the success variable to false
@@ -198,6 +210,11 @@ public class ProductDB implements ProductDBIF {
 		return success;
 	}
 	
+	/**
+	Removes a product from the database with the specified product number.
+	@param productNumber the product number of the product to be removed
+	@return true if the product was successfully removed, false otherwise
+	*/
 	@Override
 	public boolean removeProduct(int productNumber) {
 		// Get a database connection
@@ -223,9 +240,13 @@ public class ProductDB implements ProductDBIF {
 		return success;
 	}
 
-	// TODO add updateProductLocation
+	/**
 
-	public List<Product> buildListObjects(ResultSet rs) {
+	Builds a list of Product objects from a given ResultSet.
+	@param rs the ResultSet to be used to build the list of Product objects
+	@return a list of Product objects built from the ResultSet
+	*/
+	private List<Product> buildListObjects(ResultSet rs) {
 		List<Product> res = new ArrayList<>();
 		try {
 			do {
@@ -246,7 +267,7 @@ public class ProductDB implements ProductDBIF {
 	 * @return the Product object created from the ResultSet data, or null if the
 	 *         ResultSet is empty
 	 */
-	public Product buildObject(ResultSet rs) {
+	private Product buildObject(ResultSet rs) {
 		Product product = null;
 		int identity;
 		try {
