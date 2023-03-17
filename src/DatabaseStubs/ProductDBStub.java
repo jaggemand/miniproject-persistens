@@ -42,6 +42,12 @@ public class ProductDBStub implements ProductDBIF{
 		// TODO Auto-generated method stub
 		return false;
 	}
+
+	@Override
+	public boolean updateProductLocation(int productNumber, int location) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 	
 	
 }

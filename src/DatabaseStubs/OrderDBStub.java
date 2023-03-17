@@ -1,11 +1,17 @@
 package DatabaseStubs;
 
+import java.util.ArrayList;
+
 import dal.OrderDBIF;
 import model.Order;
 
 public class OrderDBStub implements OrderDBIF{
 	
-	//TODO i don't if this makes sence to make a stub for as of right now
+	ArrayList<Order> list;
+	
+	public OrderDBStub() {
+		list = new ArrayList<>();
+	}
 	@Override
 	public Order addNewOrder(Order o) {
 		// TODO Auto-generated method stub
