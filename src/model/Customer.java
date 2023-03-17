@@ -1,6 +1,11 @@
 package model;
 
 /**
+Last updated: 17-03-2023
+
+- Documentation and comments added
+*/
+/**
 
 The Customer class represents a customer entity with its properties and methods.
 */
