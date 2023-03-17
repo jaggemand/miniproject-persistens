@@ -15,7 +15,7 @@ import model.Customer;
 
 public class CustomerDB implements CustomerDBIF {
 	
-	private static final String FIND_CUSTOMER_FIELDS = "first_name, last_name, house_number, street, city_id_fk, phone_no, email, city, zipcode, [state], country ";
+	private static final String FIND_CUSTOMER_FIELDS = "contact_number,first_name, last_name, house_number, street, city_id_fk, phone_no, email, city, zipcode, [state], country ";
 	private static final String FIND_CUSTOMER_JOIN_CITY = "join city on contact.city_id_fk = city.id ";
 	private static final String FIND_CUSTOMER_JOIN_STATE = "join state on city.state_id_fk = state.id ";
 	private static final String FIND_CUSTOMER_JOIN_COUNTRY = "join country on state.country_id_fk = country.id ";
