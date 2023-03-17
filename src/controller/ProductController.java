@@ -86,7 +86,7 @@ public class ProductController {
 	public ArrayList<Product> selectStockLocation(int locationNumber) {
 		List<Product> tempList = new ArrayList<>();
 
-		tempList = productDataBase.getProductsAtLocation(location);
+		tempList = productDataBase.getProductsAtLocation(locationNumber);
 		ArrayList<Product> outputList = new ArrayList<>(tempList);
 
 		return outputList;
