@@ -20,8 +20,11 @@ public class DBConnection {
 	// An instance of the class is generated
 	private static DBConnection instance = null;
 
-	// The constructor is private to ensure that only one object of this class is created
-	public DBConnection() {
+	/**
+
+	The DBConnection class represents a singleton instance for connecting to the database.
+	*/
+	private DBConnection() {
 		String url = serverAddress + databaseName + userName + password + encryption;
 		System.out.println("URL: " + url);
 
@@ -50,7 +53,10 @@ public class DBConnection {
 		}
 	}
 
-	// CloseDb: closes the connection to the database
+	/**
+	Closes the database connection and sets the instance of the DBConnection class to null.
+	This method should be called when the application is closing or when the connection is no longer needed.
+	*/
 	public static void closeConnection() {
 		try {
 			con.close();
@@ -61,17 +67,27 @@ public class DBConnection {
 		}
 	}
 
-	// GetDBcon: returns the singleton instance of the DB connection
+	/**
+	Returns the database connection.
+	@return The database connection
+	*/
 	public Connection getDBcon() {
 		return con;
 	}
 
-	// GetDBcon: returns the singleton instance of the DB connection
+	/**
+	Returns a boolean value indicating whether the DBConnection instance is null or not.
+	@return true if the instance is null, false otherwise
+	*/
 	public static boolean instanceIsNull() {
 		return (instance == null);
 	}
 
-	// This method is used to get the instance of the connection
+	/**
+	Singleton method for obtaining a database connection instance. If an instance
+	already exists, it will be returned; otherwise, a new instance will be created.
+	@return the database connection instance
+	*/
 	public static DBConnection getInstance() {
 		if (instance == null) {
 			instance = new DBConnection();
@@ -79,6 +95,10 @@ public class DBConnection {
 		return instance;
 	}
 
+	/**
+	Returns the current open status of the database connection.
+	@return boolean value indicating whether the connection is open or closed
+	*/
 	public static boolean getOpenStatus() {
 		boolean isOpen = false;
 		try {
