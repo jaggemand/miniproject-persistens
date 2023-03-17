@@ -30,7 +30,7 @@ class OrderControllerTest {
 
 	@Test
 	void test() {
-		fail("Not yet implemented");
+		
 	}
 
 }

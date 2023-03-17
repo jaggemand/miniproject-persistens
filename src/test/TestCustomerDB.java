@@ -14,22 +14,10 @@ import model.Customer;
 
 class TestCustomerDB {
 
-	@BeforeAll
-	static void setUpBeforeClass() throws Exception {
-	}
+	/**
 
-	@AfterAll
-	static void tearDownAfterClass() throws Exception {
-	}
-
-	@BeforeEach
-	void setUp() throws Exception {
-	}
-
-	@AfterEach
-	void tearDown() throws Exception {
-	}
-
+	Test case to verify the functionality of the findCustomerByCustomerNumber() method in the CustomerDB class.
+	*/
 	@Test
 	void shouldFindCustomerOnNumber3() {
 		//arrange
@@ -42,6 +30,9 @@ class TestCustomerDB {
 		assertNotEquals(c, null);
 	}
 	
+	/**
+	Test case for checking that a customer cannot be found with customer number 0
+	*/
 	@Test
 	void shouldNotfindCustomerOnNumber0() {
 		//arrange

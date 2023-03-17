@@ -10,6 +10,11 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+/**
+Last updated: 17-03-2023
+
+- Documentation and comments added and updated
+*/
 class OrderLineTest {
 	
 	Product testProduct;
@@ -21,6 +26,10 @@ class OrderLineTest {
 		testProduct2 = new Product(2, "Test produkt 2", 16.7, 50, 10, "Danmark", 30, 1,50);
 	}
 
+	/**
+
+	Test case for the getProduct() method in the OrderLine class.
+	*/
 	@Test
 	void getProduct(){
 		// Arrange
@@ -33,6 +42,10 @@ class OrderLineTest {
 	    assertEquals(testProduct, product);
 	}
 	
+	/**
+
+	Test case for the setProduct() method in the OrderLine class.
+	*/
 	@Test
 	void setProduct(){
 		// Arrange
@@ -46,6 +59,10 @@ class OrderLineTest {
 	    assertEquals(testProduct2, orderLine.getProduct());
 	}
 	
+	/**
+
+	Test case for the getQuantity() method in the OrderLine class.
+	*/
 	@Test
 	void getQuantity(){
 		// Arrange
@@ -58,6 +75,10 @@ class OrderLineTest {
 	    assertEquals(5, quantity);
 	}
 	
+	/**
+
+	Test case for the setQuantity() method in the OrderLine class.
+	*/
 	@Test
 	void setQuantity(){
 		// Arrange
@@ -71,6 +92,10 @@ class OrderLineTest {
 	    assertEquals(8, orderLine.getQuantity());
 	}
 	
+	/**
+
+	Test case for the getTotalPriceTest() method in the OrderLine class.
+	*/
 	@Test
 	void getTotalPriceTest(){
 		// Arrange
