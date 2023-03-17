@@ -71,7 +71,7 @@ class ProductTest {
 		ProductController productController = new ProductController(productDataBase);
 
 		// Act
-		list = productController.selectStockLocation(1);
+		list = productController.selectStockLocation(50);
 		// Assert
 		assertEquals(2, list.size());
 	}
@@ -103,8 +103,8 @@ class ProductTest {
 		identity3 = -1;
 
 		// Act
-		product1 = productController.createNewProduct("Cowboy Hat", 100.0, 200.0, 50.0, "USA", 5, 25, 3, 1, 1);
-		product2 = productController.createNewProduct("Cowboy Hat", 100.0, 200.0, 50.0, "USA", 5, 25, 3, 1, 1);
+		product1 = productController.createNewProduct("Cowboy Hat", 100.0, 200.0, 50.0, "USA", 5, 25, 3, 1, 50);
+		product2 = productController.createNewProduct("Cowboy Hat", 100.0, 200.0, 50.0, "USA", 5, 25, 3, 1, 50);
 		product3 = productController.createNewProduct("Cowboy Hat", 100.0, 200.0, 50.0, "USA", 5, 25, 3, 1, 2);
 		identity1 = product1.getProductNumber();
 		identity2 = product2.getProductNumber();

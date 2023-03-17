@@ -9,8 +9,6 @@ import model.Product;
 
 public class ProductController {
 	private ProductDBIF productDataBase;
-	private int selectedStockLocation;
-	private int selectedProductToUpdate;
 
 	public ProductController(ProductDBIF productDataBase) {
 		this.productDataBase = productDataBase;
@@ -54,10 +52,10 @@ public class ProductController {
 		return success;
 	}
 
-	public ArrayList<Product> selectStockLocation(int locationNumber) {
+	public ArrayList<Product> selectStockLocation(int location) {
 		List<Product> tempList = new ArrayList<>();
 
-		tempList = productDataBase.getProductsAtLocation(locationNumber);
+		tempList = productDataBase.getProductsAtLocation(location);
 		ArrayList<Product> outputList = new ArrayList<>(tempList);
 
 		return outputList;
@@ -80,21 +78,5 @@ public class ProductController {
 		success = productDataBase.removeProduct(productNumber);
 
 		return success;
-	}
-
-	public void selectProductToUpdate(int productNumber) {
-
-	}
-
-	public boolean setProductStock(int stock) {
-		return false;
-	}
-
-	public void confirmStockUpdate() {
-
-	}
-
-	public boolean setProductLocation(Product p, String location) {
-		return false;
 	}
 }

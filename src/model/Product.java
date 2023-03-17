@@ -4,7 +4,7 @@ public class Product {
 	
 	private int productNumber;
 	private String name;
-	private double PurchasePrice;
+	private double purchasePrice;
 	private double salesPrice;
 	private double rentPrice;
 	private String countryOfOrigin;
@@ -18,7 +18,7 @@ public class Product {
 			String countryOfOrigin, int minStock, int productLocation, int stock) {
 		this.productNumber = productNumber;
 		this.name = name;
-		PurchasePrice = purchasePrice;
+		this.purchasePrice = purchasePrice;
 		this.salesPrice = salesPrice;
 		this.rentPrice = rentPrice;
 		this.countryOfOrigin = countryOfOrigin;
@@ -44,11 +44,11 @@ public class Product {
 	}
 
 	public double getPurchasePrice() {
-		return PurchasePrice;
+		return purchasePrice;
 	}
 
 	public void setPurchasePrice(double purchasePrice) {
-		PurchasePrice = purchasePrice;
+		this.purchasePrice = purchasePrice;
 	}
 
 	public double getSalesPrice() {
@@ -85,6 +85,9 @@ public class Product {
 	
 	public int getStockAmount() {
 		return stock;
+	}
+	public int getProductLocation() {
+		return productLocation;
 	}
 
 	
