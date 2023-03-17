@@ -8,6 +8,12 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
+Last updated: 17-03-2023
+
+- Documentation and comments added and updated
+*/
+
+/**
 This class contains a JUnit test case to test the database connection.
 */
 public class DatabaseConnectionTest {
