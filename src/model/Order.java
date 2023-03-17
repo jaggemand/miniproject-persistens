@@ -12,6 +12,11 @@ import java.util.Calendar;
 	- getTotalPrice() added
 	- Documentation and comments added
 */
+/**
+Last updated: 17-03-2023
+
+- Documentation and comments added and updated
+*/
 
 public class Order {
 	private ArrayList<OrderLine> orderLineList;
@@ -133,66 +138,131 @@ public class Order {
 		return total;
 	}
 	
+	/**
+	Sets the customer for the order
+	@param customer The customer to set
+	*/
 	public void setCustomer(Customer customer) {
 		this.customer = customer;
 	}
 
+	/**
+	Gets the list of order lines for the order
+	@return The list of order lines
+	*/
 	public ArrayList<OrderLine> getOrderLineList() {
 		return orderLineList;
 	}
 
+	/**
+	Sets the list of order lines for the order
+	@param orderLineList The list of order lines to set
+	*/
 	public void setOrderLineList(ArrayList<OrderLine> orderLineList) {
 		this.orderLineList = orderLineList;
 	}
 
+	/**
+	Gets the order number for the order
+	@return The order number
+	*/
 	public int getOrderNumber() {
 		return orderNumber;
 	}
 
+	/**
+	Sets the order number for the order
+	@param orderNumber The order number to set
+	*/
 	public void setOrderNumber(int orderNumber) {
 		this.orderNumber = orderNumber;
 	}
 	
+	/**
+	Returns the current status of the order.
+	@return An integer representing the current status of the order.
+	*/
 	public int getOrderStatus() {
 		return orderStatus;
 	}
 
+	/**
+	Sets the order status of the current order to the specified value.
+	@param orderStatus an integer representing the new order status
+	*/
 	public void setOrderStatus(int orderStatus) {
 		this.orderStatus = orderStatus;
 	}
 
+	  /**
+     * Returns the expected delivery date for this order.
+     * @return the expected delivery date for this order
+     */
 	public Calendar getDeliveryDate() {
 		return deliveryDate;
 	}
 
+    /**
+     * Sets the expected delivery date for this order.
+     * @param deliveryDate the new expected delivery date for this order
+     */
 	public void setDeliveryDate(Calendar deliveryDate) {
 		this.deliveryDate = deliveryDate;
 	}
 
+    /**
+     * Returns the date on which payment for this order was made.
+     * @return the date on which payment for this order was made
+     */
 	public Calendar getPaymentDate() {
 		return paymentDate;
 	}
 
+    /**
+     * Sets the date on which payment for this order was made.
+     * @param paymentDate the new date on which payment for this order was made
+     */
 	public void setPaymentDate(Calendar paymentDate) {
 		this.paymentDate = paymentDate;
 	}
 	
-	public Calendar getCreationDate() {
-		return creationDate;
-	}
+	  /**
+     * Returns the date on which this order was created.
+     * @return the date on which this order was created
+     */
+    public Calendar getCreationDate() {
+        return creationDate;
+    }
+    
+    /**
+     * Sets the date on which this order was created.
+     * @param creationDate the new date on which this order was created
+     */
+    public void setCreationDate(Calendar creationDate) {
+        this.creationDate = creationDate;
+    }
+    
+    /**
+     * Returns the total cost of this order.
+     * @return the total cost of this order
+     */
+    public double getTotalCost() {
+        return totalCost;
+    }
 
-	public void setCreationDate(Calendar creationDate) {
-		this.creationDate = creationDate;
-	}
+    /**
 
-	public double getTotalCost() {
-		return totalCost;
-	}
-
+    Sets the total cost of the order.
+    @param totalCost the total cost of the order.
+    */
 	public void setTotalCost(double totalCost) {
 		this.totalCost = totalCost;
 	}
 
+	/**
+	Returns the customer who placed the order.
+	@return the customer who placed the order
+	*/
 	public Customer getCustomer() {
 		return customer;
 	}
