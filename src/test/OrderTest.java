@@ -10,6 +10,10 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+/**
+
+This class tests the functionalities of the Order class.
+*/
 class OrderTest {
 	
 	Product testProduct;
@@ -17,6 +21,10 @@ class OrderTest {
 	
 	Order testOrder;
 
+	/**
+	Sets up the initial state of the test environment.
+	@throws Exception
+	*/
 	@BeforeEach
 	void setUp() throws Exception {
 		testOrder = new Order();
@@ -24,6 +32,9 @@ class OrderTest {
 		testProduct2 = new Product(2, "Test produkt 2", 16.7, 50, 10, "Danmark", 30, 1,50);
 	}
 
+	/**
+	Tests if the product is added successfully to the order and the quantity is set correctly.
+	*/
 	@Test
 	void addProductTest() {
 		// Arrange
@@ -39,7 +50,10 @@ class OrderTest {
 	    assertEquals(2, testOrder.getOrderLineList().get(0).getQuantity());
 	}
 	
-		@Test
+	/**
+	Tests if the quantity of an existing product is incremented correctly.
+	*/
+	@Test
 	void addProductToIncrementTest() {
 		// Arrange
 	    // The arrange step is done in the beforeAll and beforeEach
@@ -54,7 +68,11 @@ class OrderTest {
 	    assertEquals(7, testOrder.getOrderLineList().get(0).getQuantity());
 	}
 	
-		@Test
+	/**
+
+	Tests if the quantity of a product is set correctly.
+	*/
+	@Test
 	void setAmountTest() {
 		// Arrange
 	    testOrder.addProduct(testProduct, 2);
@@ -68,7 +86,10 @@ class OrderTest {
 	    assertEquals(1, testOrder.getOrderLineList().get(0).getQuantity());
 	}
 	
-		@Test
+	/**
+	Tests if the product is removed successfully from the order.
+	*/
+	@Test
 	void removeProductTest() {
 		// Arrange
 	    testOrder.addProduct(testProduct, 2);
@@ -82,7 +103,10 @@ class OrderTest {
 	    assertEquals(false, testOrder.getOrderLineList().contains(testProduct2));
 	}
 	
-		@Test
+	/**
+	Tests if the total price of the order is calculated correctly.
+	*/
+	@Test
 	void getTotalPriceTest() {
 		// Arrange
 	    testOrder.addProduct(testProduct, 2);
