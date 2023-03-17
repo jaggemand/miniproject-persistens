@@ -13,23 +13,11 @@ import controller.CustomerController;
 import model.Customer;
 
 class CustomerControllerTest {
-
-	@BeforeAll
-	static void setUpBeforeClass() throws Exception {
-	}
-
-	@AfterAll
-	static void tearDownAfterClass() throws Exception {
-	}
-
-	@BeforeEach
-	void setUp() throws Exception {
-	}
-
-	@AfterEach
-	void tearDown() throws Exception {
-	}
-
+	
+	/**
+	 * Test method to check that the findCustomerByCustomerNumber method
+	 * returns a non-null Customer object.
+	 */
 	@Test
 	void customerNotNull() {
 		//arrange
